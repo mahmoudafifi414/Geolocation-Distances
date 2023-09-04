@@ -8,16 +8,17 @@ readonly class LocationDataAdapter
 {
     /**
      * @param int $iteration
+     * @param string $address
      * @param LocationDTO $locationDTO
      * @return array
      */
-    public static function convertToArray(int $iteration, LocationDTO $locationDTO): array
+    public static function convertToArray(int $iteration, string $address, LocationDTO $locationDTO): array
     {
         return [
             $iteration,
             $locationDTO->getLocationDistance() . ' ' .config('geolocation.UNIT.KM'),
             $locationDTO->getLocationName(),
-            $locationDTO->getLocationLabel()
+            $address
         ];
     }
 }

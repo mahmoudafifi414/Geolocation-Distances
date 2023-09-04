@@ -28,7 +28,7 @@ class PositionStackProvider extends GeolocationProviders
         foreach ($this->getDefinedOriginLocations() as $originLocation) {
             $locationData = $this->getLocationGeolocationData($originLocation);
             if ($locationData) {
-                $originLocationsDTOObjects[] = $this->convertToLocationDTO($locationData[0], $destinationLocationDTO);
+                $originLocationsDTOObjects[$originLocation] = $this->convertToLocationDTO($locationData[0], $destinationLocationDTO);
             }
         }
 

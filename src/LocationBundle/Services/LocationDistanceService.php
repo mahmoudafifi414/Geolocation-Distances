@@ -40,8 +40,8 @@ readonly class LocationDistanceService
     {
         $locationArrayData = [];
         $sortNumber = 1;
-        foreach ($locationsDTOs as $locationDTO){
-            $locationArrayData[] = LocationDataAdapter::convertToArray($sortNumber, $locationDTO);
+        foreach ($locationsDTOs as $address => $locationDTO){
+            $locationArrayData[] = LocationDataAdapter::convertToArray($sortNumber, $address, $locationDTO);
             $sortNumber++;
         }
 
