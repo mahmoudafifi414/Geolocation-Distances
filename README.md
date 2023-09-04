@@ -12,8 +12,9 @@
 
 - Create your own .env file (you should take it from .env.example).
 - Fill **POSITIONSTACK_API_KEY** env variable with your own position stack api key.
-- run: "composer install". 
-- run: "php artisan app:list-location-distances" -> to run the custom command.
+- Run: "composer install".
+- Go inside the container by "docker exec -it php-app bash"
+- Run inside the container: "php artisan app:list-location-distances" -> to run the custom command.
 - You should get the results in table, and you should get the distances.csv file inside "storage/app".
 
 ## Notes

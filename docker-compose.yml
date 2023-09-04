@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  location-distance:
+  geolocation-distances:
 
 services:
   nginx:
@@ -15,7 +15,7 @@ services:
     depends_on:
       - php
     networks:
-      - location-distance
+      - geolocation-distances
 
   php:
     build:
@@ -28,4 +28,4 @@ services:
     ports:
       - "9000:9000"
     networks:
-      - location-distance
+      - geolocation-distances

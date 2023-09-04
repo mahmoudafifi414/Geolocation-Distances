@@ -10,7 +10,7 @@ abstract class GeolocationProviders
     /**
      * @return array
      */
-    protected abstract function getLocationsDTOs(): array;
+    abstract protected function getLocationsDTOs(): array;
 
     /**
      * @param $locationData
