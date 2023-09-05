@@ -4,7 +4,6 @@ namespace LocationBundle\Adapters;
 
 use LocationBundle\DTOs\LocationDTOs\LocationDTO;
 use LocationBundle\ValueObjects\Location\LocationDistance;
-use LocationBundle\ValueObjects\Location\LocationLabel;
 use LocationBundle\ValueObjects\Location\LocationLatitude;
 use LocationBundle\ValueObjects\Location\LocationLongitude;
 use LocationBundle\ValueObjects\Location\LocationName;
@@ -22,7 +21,6 @@ readonly class LocationDTOAdapter
             LocationName::of($location->name),
             LocationLatitude::of($location->latitude),
             LocationLongitude::of($location->longitude),
-            LocationLabel::of($location->label),
             $destinationDTO ?
                 LocationDistance::calculateDistanceInMeters($destinationDTO, $location->latitude, $location->longitude)
                 : LocationDistance::of(0)

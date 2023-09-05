@@ -4,18 +4,16 @@ namespace LocationBundle\DTOs\LocationDTOs;
 
 use LocationBundle\DTOs\DTO;
 use LocationBundle\ValueObjects\Location\LocationDistance;
-use LocationBundle\ValueObjects\Location\LocationLabel;
 use LocationBundle\ValueObjects\Location\LocationLatitude;
 use LocationBundle\ValueObjects\Location\LocationLongitude;
 use LocationBundle\ValueObjects\Location\LocationName;
 
-readonly class LocationDTO implements DTO
+class LocationDTO implements DTO
 {
     /**
      * @param LocationName $locationName
      * @param LocationLatitude $locationLatitude
      * @param LocationLongitude $locationLongitude
-     * @param LocationLabel $locationLabel
      * @param LocationDistance $locationDistance
      */
     public function __construct
@@ -23,7 +21,6 @@ readonly class LocationDTO implements DTO
         private LocationName      $locationName,
         private LocationLatitude  $locationLatitude,
         private LocationLongitude $locationLongitude,
-        private LocationLabel     $locationLabel,
         private LocationDistance  $locationDistance
     )
     {
@@ -51,14 +48,6 @@ readonly class LocationDTO implements DTO
     public function getLocationLongitude(): float
     {
         return $this->locationLongitude->getValue();
-    }
-
-    /**
-     * @return string
-     */
-    public function getLocationLabel(): string
-    {
-        return $this->locationLabel->getValue();
     }
 
     /**
