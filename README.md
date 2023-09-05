@@ -19,7 +19,7 @@
 - About the previous point you may need to give permission inside storage folder by for example "chmod -R 777 ./storage"
 ## Notes
 
-- The Entire Location logic inside "LocationBundle" Folder.
+- The Entire Location logic inside "src/LocationBundle" Folder.
 - Sometimes "PositionStack" provider return 400 so please retry again until it return results.
 - We send request per location because we can't send batch location to be processed once because our position stack plan api key is send one request only.
 
