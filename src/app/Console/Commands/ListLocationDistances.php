@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use LocationBundle\Exceptions\LocationException;
 use LocationBundle\Services\LocationDistanceService;
+use Throwable;
 
 class ListLocationDistances extends Command
 {
@@ -33,7 +34,7 @@ class ListLocationDistances extends Command
             $locationArrayData = $locationDistancesService->getLocationDataToOutput($locationDTOs);
             $locationDistancesService->setCSVDataOutput($locationArrayData);
             $this->showLocationSortingResults($locationArrayData);
-        }catch (\Throwable $throwable){
+        }catch (Throwable $throwable){
             $this->warn($throwable instanceof LocationException ? $throwable->getMessage() : 'Error Happened');
         }
     }

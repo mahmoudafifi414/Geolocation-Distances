@@ -14,6 +14,7 @@ use LocationBundle\ValueObjects\Location\LocationName;
 use ReflectionException;
 use Tests\TestCase;
 use stdClass;
+use ReflectionClass;
 
 class PositionStackProviderTest extends TestCase
 {
@@ -30,11 +31,8 @@ class PositionStackProviderTest extends TestCase
         $positionStackProvider->method('getDestinationLocationDTO')->willReturn($this->getDestinationDTO());
         $positionStackProvider->method('getDefinedOriginLocations')->willReturn($this->getDefinedOriginLocations());
         $positionStackProvider->method('getGeolocationData')->willReturn($this->getGeolocationData());
-        try {
-            $result = $positionStackProvider->getLocationsDTOs();
-            $this->assertEquals($this->getExpectedLocationsDTOs(), $result);
-        } catch (GuzzleException|NoDestinationDataException|NoOriginDataException $e) {
-        }
+        $result = $positionStackProvider->getLocationsDTOs();
+        $this->assertEquals($this->getExpectedLocationsDTOs(), $result);
     }
 
      /**
@@ -66,7 +64,7 @@ class PositionStackProviderTest extends TestCase
 
         $positionStackProvider->method('getGeolocationData')->willReturn($this->getDestinationGeolocationData());
 
-        $reflectionClass = new \ReflectionClass($positionStackProvider);
+        $reflectionClass = new ReflectionClass($positionStackProvider);
         $method = $reflectionClass->getMethod('getDestinationLocationDTO');
         $this->assertEquals($this->getDestinationDTO(), $method->invoke($positionStackProvider));
     }
@@ -84,7 +82,7 @@ class PositionStackProviderTest extends TestCase
 
         $positionStackProvider->method('getGeolocationData')->willReturn([]);
 
-        $reflectionClass = new \ReflectionClass($positionStackProvider);
+        $reflectionClass = new ReflectionClass($positionStackProvider);
         $method = $reflectionClass->getMethod('getDestinationLocationDTO');
         $method->invoke($positionStackProvider);
     }

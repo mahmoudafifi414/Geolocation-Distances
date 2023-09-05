@@ -3,8 +3,9 @@
 namespace LocationBundle\Exceptions;
 
 use Throwable;
+use Exception;
 
-abstract class LocationException extends \Exception
+abstract class LocationException extends Exception
 {
     /**
      * @param $message

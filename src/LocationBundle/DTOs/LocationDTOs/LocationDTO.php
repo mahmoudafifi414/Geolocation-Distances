@@ -8,7 +8,7 @@ use LocationBundle\ValueObjects\Location\LocationLatitude;
 use LocationBundle\ValueObjects\Location\LocationLongitude;
 use LocationBundle\ValueObjects\Location\LocationName;
 
-class LocationDTO implements DTO
+readonly class LocationDTO implements DTO
 {
     /**
      * @param LocationName $locationName
@@ -18,10 +18,10 @@ class LocationDTO implements DTO
      */
     public function __construct
     (
-        private LocationName      $locationName,
-        private LocationLatitude  $locationLatitude,
-        private LocationLongitude $locationLongitude,
-        private LocationDistance  $locationDistance
+        private readonly LocationName      $locationName,
+        private readonly LocationLatitude  $locationLatitude,
+        private readonly LocationLongitude $locationLongitude,
+        private readonly LocationDistance $locationDistance
     )
     {
     }
