@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use LocationBundle\Exceptions\LocationException;
+use LocationBundle\Services\Contracts\ILocationDistanceService;
 use LocationBundle\Services\LocationDistanceService;
 use Throwable;
 
@@ -27,7 +28,7 @@ class ListLocationDistances extends Command
      * @param LocationDistanceService $locationDistancesService
      * @return void
      */
-    public function handle(LocationDistanceService $locationDistancesService): void
+    public function handle(ILocationDistanceService $locationDistancesService): void
     {
         try {
             $locationDTOs = $locationDistancesService->getLocationsWithSortedDistances();

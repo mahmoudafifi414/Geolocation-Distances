@@ -2,20 +2,22 @@
 namespace LocationBundle\Services;
 use LocationBundle\Adapters\LocationDataAdapter;
 use LocationBundle\FactoryClasses\GeolocationProviders\IGeolocationProvidersFactory;
+use LocationBundle\Services\Contracts\ILocationDistanceService;
+use LocationBundle\Services\Contracts\ILocationDistanceSortingService;
 use LocationBundle\Strategies\OutputStrategies\OutputStrategyContext;
 
-readonly class LocationDistanceService
+readonly class LocationDistanceService implements ILocationDistanceService
 {
 
     /**
-     * @param LocationDistanceSortingService $locationDistanceSortingService
+     * @param ILocationDistanceSortingService $locationDistanceSortingService
      * @param IGeolocationProvidersFactory $geolocationProvidersFactory
      * @param OutputStrategyContext $outputStrategyContext
      */
     public function __construct
     (
 
-        private LocationDistanceSortingService $locationDistanceSortingService,
+        private ILocationDistanceSortingService $locationDistanceSortingService,
         private IGeolocationProvidersFactory $geolocationProvidersFactory,
         private OutputStrategyContext $outputStrategyContext,
     )
