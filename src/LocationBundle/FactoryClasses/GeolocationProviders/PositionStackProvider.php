@@ -80,6 +80,7 @@ class PositionStackProvider extends GeolocationProviders
         if (NULL === $this->client) {
             $this->client = new Client();
         }
+
         return $this->client;
     }
 }

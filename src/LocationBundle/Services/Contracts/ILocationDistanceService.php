@@ -6,7 +6,7 @@ interface ILocationDistanceService
     /**
      * @return array
      */
-    public function getLocationsWithSortedDistances(): array;
+    public function getSortedLocationsDistances(): array;
 
     /**
      * @param array $locationsDTOs

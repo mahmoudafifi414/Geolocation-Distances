@@ -2,6 +2,7 @@
 
 return [
     'OUTPUT_STRATEGY' => 'csv',
+    'OUTPUT_STRATEGY_FILE_NAME' => 'distances.csv',
     'LOCATION_TYPES' => ['DESTINATION' => 'destination', 'ORIGIN' => 'origin'],
     'TABLE_COLUMNS_HEADINGS' => ['SortNumber', 'Distance', 'Name', 'Address'],
     'UNIT' => ['KM' => 'km'],

@@ -14,6 +14,6 @@ class CSVOutputStrategy implements IOutputStrategy
      */
     public function output(array $dataToOutput): bool
     {
-        return Excel::store(new LocationExport($dataToOutput), 'distances.csv');
+        return Excel::store(new LocationExport($dataToOutput), config('geolocation.OUTPUT_STRATEGY_FILE_NAME'));
     }
 }

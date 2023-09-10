@@ -10,6 +10,7 @@ use LocationBundle\ValueObjects\Location\LocationName;
 
 readonly class LocationDTOAdapter
 {
+    private const EMPTY_DISTANCE = 0;
     /**
      * @param $location
      * @param LocationDTO|null $destinationDTO
@@ -23,7 +24,7 @@ readonly class LocationDTOAdapter
             LocationLongitude::of($location->longitude),
             $destinationDTO ?
                 LocationDistance::calculateDistanceInMeters($destinationDTO, $location->latitude, $location->longitude)
-                : LocationDistance::of(0)
+                : LocationDistance::of(self::EMPTY_DISTANCE)
         );
     }
 }

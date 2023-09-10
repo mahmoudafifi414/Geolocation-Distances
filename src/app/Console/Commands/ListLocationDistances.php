@@ -31,7 +31,7 @@ class ListLocationDistances extends Command
     public function handle(ILocationDistanceService $locationDistancesService): void
     {
         try {
-            $locationDTOs = $locationDistancesService->getLocationsWithSortedDistances();
+            $locationDTOs = $locationDistancesService->getSortedLocationsDistances();
             $locationArrayData = $locationDistancesService->getLocationDataToOutput($locationDTOs);
             $locationDistancesService->setCSVDataOutput($locationArrayData);
             $this->showLocationSortingResults($locationArrayData);

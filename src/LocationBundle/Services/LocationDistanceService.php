@@ -27,7 +27,7 @@ readonly class LocationDistanceService implements ILocationDistanceService
     /**
      * @return array
      */
-    public function getLocationsWithSortedDistances(): array
+    public function getSortedLocationsDistances(): array
     {
         $geolocationProvider = $this->geolocationProvidersFactory->makeGeolocationProvider();
         $locationsDTOs = $geolocationProvider->getLocationsDTOs();

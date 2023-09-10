@@ -19,7 +19,7 @@ class LocationDistanceServiceTest extends TestCase
     /**
      * @return void
      */
-    public function testGetLocationsWithSortedDistances(): void
+    public function testGetSortedLocationsDistances(): void
     {
         $positionStackProvider = $this->getMockBuilder(PositionStackProvider::class)
             ->disableOriginalConstructor()
@@ -40,7 +40,7 @@ class LocationDistanceServiceTest extends TestCase
             new OutputStrategyContext()
         );
 
-        $result = $locationDistanceService->getLocationsWithSortedDistances();
+        $result = $locationDistanceService->getSortedLocationsDistances();
         $this->assertEquals($this->getSortedLocationsDTOs(), $result);
 
     }
